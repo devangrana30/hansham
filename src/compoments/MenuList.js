@@ -7,11 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 const MenuList = ({ item, index }) => {
     const navigation = useNavigation();
     const { adLoaded, adDismissed, show } = useInterstitialAd(
-        'ca-app-pub-8906065248414370/6829852834', {
-            requestOptions: {
-                requestNonPersonalizedAdsOnly: true,
-            },
-        }
+        'ca-app-pub-8906065248414370/6829852834',
     );
 
     useEffect(() => {
@@ -32,8 +28,14 @@ const MenuList = ({ item, index }) => {
                 <TouchableOpacity
                     activeOpacity={0.5}
                     onPress={() => {
-                        if (adLoaded) {
-                            show()
+                        if(index == 1 || index == 3 || index == 6) {
+                            console.log(adLoaded)
+                            if (adLoaded) {
+                                show()
+                                navigation.navigate('ProuctListScreen', { title: item.name, id: item.id })
+                            } else {
+                                navigation.navigate('ProuctListScreen', { title: item.name, id: item.id })
+                            }
                         } else {
                             navigation.navigate('ProuctListScreen', { title: item.name, id: item.id })
                         }

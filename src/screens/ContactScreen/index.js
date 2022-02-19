@@ -7,6 +7,8 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import HeaderCenter from '../../compoments/Header/HeaderCenter';
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import { useNavigation } from '@react-navigation/native';
+import { BannerAd, BannerAdSize } from '@react-native-admob/admob';
+import adsId from '../../constant/adsId';
 
 const ContactScreen = () => {
     const navigation = useNavigation();
@@ -35,6 +37,10 @@ const ContactScreen = () => {
                 <Text style={[styles.titleTxt, { fontSize: RFValue(22), fontWeight: 'bold' }]}>Shop Address : -</Text>
                 <Text style={styles.nameTxt}>{`Rokadiya Hanuman Mandir, \nNr. Kharwar Nagar BRTS, \nSurat-395002.`}</Text>
             </Container>
+            <BannerAd
+                size={BannerAdSize.BANNER}
+                unitId={adsId.banner_ads_id}
+            />
         </ImageBackground>
     )
 }

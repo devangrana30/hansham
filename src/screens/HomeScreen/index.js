@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Image, ImageBackground, FlatList, Text, TouchableOpacity, View } from 'react-native'
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Container from '../../compoments/Container';
@@ -8,7 +8,8 @@ import { styles } from './styles';
 import { BannerAd, BannerAdSize } from '@react-native-admob/admob';
 import adsId from '../../constant/adsId';
 import MenuList from '../../compoments/MenuList';
-import NativeAdView from "react-native-admob-native-ads";
+import NativeAdView, { HeadlineView, ImageView } from "react-native-admob-native-ads";
+import MenuAdsList from '../../compoments/MenuAdsList';
 
 const menuList = [
     { ads: true },
@@ -24,6 +25,13 @@ const menuList = [
 
 const HomeScreen = () => {
     const navigation = useNavigation();
+
+    const nativeAdViewRef = useRef();
+
+    useEffect(() => {
+        nativeAdViewRef.current?.loadAd();
+    }, []);
+
     return (
         <ImageBackground resizeMode='stretch' source={require('../../assets/images/home_bg.png')} style={styles.container}>
             <Header>
@@ -39,12 +47,7 @@ const HomeScreen = () => {
                     contentContainerStyle={{ paddingVertical: wp(8) }}
                     renderItem={({ item, index }) => (
                         item.ads ?
-                            <NativeAdView
-                                ref={nativeAdViewRef}
-                                adUnitID="ca-app-pub-3940256099942544/2247696110"
-                            >
-                                <View>/* All other ad components */</View>
-                            </NativeAdView> :
+                            <MenuAdsList/> :
                             <MenuList
                                 item={item}
                                 index={index}

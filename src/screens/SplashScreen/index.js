@@ -7,9 +7,9 @@ const SplashScreen = () => {
     const navigation = useNavigation();
     
     useEffect(()=> {
-        setTimeout(()=> {
-            navigation.navigate('DrawerScreen')
-        }, 5000)
+        // setTimeout(()=> {
+        //     navigation.navigate('DrawerScreen')
+        // }, 5000)
     }, [])
     return (
         <View style={styles.container}>
