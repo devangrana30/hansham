@@ -67,7 +67,8 @@ export const styles = StyleSheet.create({
     nameTxt: {
         fontFamily: 'RobotoSlab-Regular',
         paddingHorizontal: wp(5),
-        fontSize: RFValue(20)
+        fontSize: RFValue(20),
+        color: 'gray'
     },
     arrowStyle: {
         height: wp(6),

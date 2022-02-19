@@ -5,9 +5,11 @@ import { Header, HeaderLeft } from '../../compoments/Header';
 import Container from '../../compoments/Container';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { BannerAd, BannerAdSize } from '@react-native-admob/admob';
+import adsId from '../../constant/adsId';
 
 const menuList = [
-    { name: 'Regular Dray Manchuriyan', full: '80 ₹', half: '60 ₹', image: 'https://c.ndtvimg.com/2020-12/3eq2hi3_manchurian_625x300_21_December_20.jpg' },
+    { name: 'Regular Dry Manchuriyan', full: '80 ₹', half: '60 ₹', image: 'https://c.ndtvimg.com/2020-12/3eq2hi3_manchurian_625x300_21_December_20.jpg' },
     { name: 'Schezwan Manchuriyan', full: '80 ₹', half: '60 ₹', image: 'https://www.everydayeasyeats.com/wp-content/uploads/2016/06/Chinese-Fried-Rice-1.jpg' },
     { name: 'Singapuri Manchuriyan', full: '100 ₹', half: '80 ₹', image: 'https://www.swatirecipe.com/wp-content/uploads/2018/04/manchow-soup-recipe.jpg' },
     { name: 'Meggie Manchuriyan', full: '100 ₹', half: '80 ₹', image: 'https://browngirlmagazine.com/wp-content/uploads/2020/03/Add-Some-Color-to-Your-Menu-With-Chinese-Bhel-_7-scaled.jpg' },
@@ -98,6 +100,10 @@ const ProductListScreen = () => {
                     )}
                 />
             </Container>
+            <BannerAd
+                size={BannerAdSize.BANNER}
+                unitId={adsId.banner_ads_id}
+            />
         </ImageBackground>
     )
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { Platform, View, ViewPropTypes, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
-import { hasNotch } from "react-native-device-info";
 
 const Header = props => {
     return (
@@ -54,6 +53,6 @@ const styles = StyleSheet.create({
     },
     statusBar: {
         width: "100%",
-        height: Platform.OS === 'ios' ? hasNotch() ? 37 : 22 : 22,
+        height: Platform.OS === 'ios' ? 37 : 22,
     }
 });
