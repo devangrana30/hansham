@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
         height: wp(18),
         width: wp(18),
         borderRadius: 25,
-        backgroundColor:'red',
+        // backgroundColor:'red',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,

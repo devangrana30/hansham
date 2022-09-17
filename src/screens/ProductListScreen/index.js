@@ -107,10 +107,15 @@ const ProductListScreen = () => {
                     )}
                 />
             </Container>
-            <BannerAd
-                size={BannerAdSize.BANNER}
-                unitId={adsId.banner_ads_id}
-            />
+            <View style={{ width: '100%', alignItems: 'center', backgroundColor: 'white' }}>
+                <BannerAd
+                    size={BannerAdSize.BANNER}
+                    unitId={adsId.banner_ads_id}
+                    onAdLoaded={(eror) => console.log(eror)}
+                    // onAdFailedToLoad={(error) => console.error(error)}
+                    // ref={bannerRef}
+                />
+            </View>
         </ImageBackground>
     )
 }

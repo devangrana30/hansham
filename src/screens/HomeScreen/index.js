@@ -47,7 +47,7 @@ const HomeScreen = () => {
                     contentContainerStyle={{ paddingVertical: wp(8) }}
                     renderItem={({ item, index }) => (
                         item.ads ?
-                            <MenuAdsList/> :
+                            <MenuAdsList /> :
                             <MenuList
                                 item={item}
                                 index={index}
@@ -58,10 +58,12 @@ const HomeScreen = () => {
                     )}
                 />
             </Container>
-            <BannerAd
-                size={BannerAdSize.BANNER}
-                unitId={adsId.banner_ads_id}
-            />
+            <View style={{ width: '100%', alignItems: 'center', backgroundColor: 'white' }}>
+                <BannerAd
+                    size={BannerAdSize.BANNER}
+                    unitId={adsId.banner_ads_id}
+                />
+            </View>
         </ImageBackground>
     )
 }

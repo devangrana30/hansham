@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 import React, { useEffect, useRef } from 'react';
-import NativeAdView, { HeadlineView } from 'react-native-admob-native-ads';
+import NativeAdView, { HeadlineView, ImageView, TaglineView } from 'react-native-admob-native-ads';
 import { styles } from '../screens/ProductListScreen/styles';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -18,11 +18,23 @@ const DishAdsList = () => {
             ref={nativeAdViewRef}
             adUnitID={adsId.native_ads_id}
         >
-            <View style={styles.mainView}>
+            <View style={[styles.mainView, { flexDirection: 'row' }]}>
                 <View style={styles.secondView}>
-                    <View style={{ width: '90%' }}>
+                    {/* <IconView
+                        style={styles.imageView}
+                    /> */}
+                    <ImageView style={styles.imageView} />
+                    <View style={{ width: '70%' }}>
                         <HeadlineView
-                            style={[styles.nameTxt, { fontSize: RFValue(14)}]}
+                            style={[styles.nameTxt, { fontSize: RFValue(14) }]}
+                        />
+                        <TaglineView
+                            style={{
+                                fontWeight: "bold",
+                                fontSize: 12,
+                                width: '80%',
+                                alignSelf: 'center'
+                            }}
                         />
                         <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: wp(5), justifyContent: 'space-between', paddingTop: wp(1.5) }}>
                             {/* <Text style={styles.priceTxt}>Half: <Text style={{ color: '#eb394e', fontFamily: 'RobotoSlab-Medium' }}>{item.half}</Text></Text>
